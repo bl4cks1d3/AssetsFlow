@@ -19,7 +19,7 @@ import InformationOutline from 'mdi-material-ui/InformationOutline'
 import TabInfo from 'src/views/account-settings/TabInfo'
 import TabAccount from 'src/views/account-settings/TabAccount'
 import TabSecurity from 'src/views/account-settings/TabSecurity'
-import Table from 'src/views/maintenance/Table'
+import Table from 'src/views/dispose/Table'
 
 
 // ** Third Party Styles Imports
