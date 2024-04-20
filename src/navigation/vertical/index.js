@@ -3,7 +3,7 @@
 import HomeOutline from 'mdi-material-ui/HomeOutline'
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 import  CogOutline  from 'mdi-material-ui/CogOutline'
-import { ArchiveAlertOutline, ArchiveClockOutline, ArchiveEditOutline, ArchiveOffOutline, ArchiveOutline, ArchivePlusOutline, PlaylistEdit, PlaylistPlus } from 'mdi-material-ui/'
+import { ArchiveAlertOutline, ArchiveClockOutline, ArchiveEditOutline, ArchiveOffOutline, ArchiveOutline, ArchivePlusOutline, PlaylistEdit, PlaylistPlus, SwapVertical } from 'mdi-material-ui/'
 
 const navigation = () => {
   return [
@@ -18,44 +18,37 @@ const navigation = () => {
     {
       title: 'Assets',
       icon: ArchiveOutline,
-      path: '/pages/assets',
-      openInNewTab: true
+      path: '/assets'
     },
     {
       title: 'Register',
       icon: ArchivePlusOutline,
-      path: '/pages/register',
-      openInNewTab: true
+      path: '/register'
     },
     {
       title: 'Update',
       icon: ArchiveEditOutline,
-      path: '/pages/update',
-      openInNewTab: true
+      path: '/update'
     },
     {
       title: 'Maintenance',
       icon: ArchiveAlertOutline,
-      path: '/pages/maintenance',
-      openInNewTab: true
+      path: '/maintenance'
     },
     {
       title: 'Dispose',
       icon: ArchiveOffOutline,
-      path: '/pages/dispose',
-      openInNewTab: true
+      path: '/dispose'
     },
     {
       title: 'Transfer',
-      icon: AlertCircleOutline,
-      path: '/pages/transfer',
-      openInNewTab: true
+      icon: SwapVertical,
+      path: '/transfer'
     },
     {
       title: 'History',
       icon: ArchiveClockOutline,
-      path: '/pages/history',
-      openInNewTab: true
+      path: '/history'
     },
     {
       sectionTitle: 'Category Management'

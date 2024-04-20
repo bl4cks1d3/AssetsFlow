@@ -1,5 +1,6 @@
 // ** React Imports
 import { useState } from 'react'
+import useContractInteraction from "src/@core/context/ContractContext";
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
@@ -49,6 +50,26 @@ const TabAccount = () => {
   // ** State
   const [openAlert, setOpenAlert] = useState(true)
   const [imgSrc, setImgSrc] = useState('/images/avatars/1.png')
+  const { callContractView, callContractTx, error } = useContractInteraction();
+  const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  const RegisterCategoryButtonClick = async () => {
+    try {
+      setLoading(true);
+
+      // Exemplo de chamada de função do contrato
+      const functionName = "registerCategory";
+
+      const params = ['computadores','todos os prifericos relacionados a area de tecnologia'];
+      const result = await callContractTx(functionName, ...params);
+      setResult(result); // Atualizando o estado com o resultado da chamada
+      setLoading(false  );
+    } catch (error) {
+      console.error("Error calling contract function:", error);
+      setLoading(false);
+    }
+  };
 
   const onChange = file => {
     const reader = new FileReader()
@@ -63,30 +84,6 @@ const TabAccount = () => {
     <CardContent>
       <form>
         <Grid container spacing={7}>
-          <Grid item xs={12} sx={{ marginTop: 4.8, marginBottom: 3 }}>
-            <Box sx={{ display: 'flex', alignItems: 'center' }}>
-              <ImgStyled src={imgSrc} alt='Profile Pic' />
-              <Box>
-                <ButtonStyled component='label' variant='contained' htmlFor='account-settings-upload-image'>
-                  Upload New Photo
-                  <input
-                    hidden
-                    type='file'
-                    onChange={onChange}
-                    accept='image/png, image/jpeg'
-                    id='account-settings-upload-image'
-                  />
-                </ButtonStyled>
-                <ResetButtonStyled color='error' variant='outlined' onClick={() => setImgSrc('/images/avatars/1.png')}>
-                  Reset
-                </ResetButtonStyled>
-                <Typography variant='body2' sx={{ marginTop: 5 }}>
-                  Allowed PNG or JPEG. Max size of 800K.
-                </Typography>
-              </Box>
-            </Box>
-          </Grid>
-
           <Grid item xs={12} sm={6}>
             <TextField fullWidth label='Username' placeholder='johnDoe' defaultValue='johnDoe' />
           </Grid>
@@ -148,8 +145,8 @@ const TabAccount = () => {
           ) : null}
 
           <Grid item xs={12}>
-            <Button variant='contained' sx={{ marginRight: 3.5 }}>
-              Save Changes
+            <Button onClick={RegisterCategoryButtonClick} disabled={loading} variant='contained' sx={{ marginRight: 3.5 }}>
+            {loading ? "Registrando..." : "Save Category"}
             </Button>
             <Button type='reset' variant='outlined' color='secondary'>
               Reset

@@ -11,7 +11,7 @@ const AnotherComponent = () => {
       setLoading(true);
 
       // Exemplo de chamada de função do contrato
-      const functionName = "";
+      const functionName = "getCategoryDetails";
 
       const params = [0];
       const result = await callContractView(functionName, ...params);
