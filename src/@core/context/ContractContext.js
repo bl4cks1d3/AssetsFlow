@@ -23,7 +23,7 @@ const useContractInteraction = () => {
 
       // Chame a função com os argumentos
       const result = await contract[functionName](...args);
-      console.log("Function call successful");
+    
 
       return result;
     } catch (error) {
@@ -45,7 +45,6 @@ const useContractInteraction = () => {
         // Se for uma função de leitura, chamar com ou sem argumentos
           const transaction = await contract[functionName](...args);
           const result = await transaction.wait();
-          console.log("Transaction successful");
 
       return result.transactionHash;
     } catch (error) {

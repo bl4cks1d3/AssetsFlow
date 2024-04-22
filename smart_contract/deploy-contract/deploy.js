@@ -4,7 +4,7 @@ async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contract with account:", deployer.address);
 
-  const Contract = await ethers.getContractFactory(""); // Substitua "NomeDoContrato" pelo nome do seu contrato
+  const Contract = await ethers.getContractFactory("AssetsFlow"); // Substitua "NomeDoContrato" pelo nome do seu contrato
   const contract = await Contract.deploy();
 
    // Espere o contrato ser implantado e confirmado na blockchain
