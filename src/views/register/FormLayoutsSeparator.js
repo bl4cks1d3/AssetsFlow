@@ -29,7 +29,7 @@ const FormLayoutsSeparator = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try { 
-      await callContractTx("registerAsset", description, currentLocation, "1" , 0);
+      await callContractTx("registerAsset", description, currentLocation, "1" , 3);
     } catch (error) {
       console.error("Error registering asset:", error);
     }
